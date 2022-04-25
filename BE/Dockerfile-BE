@@ -1,0 +1,9 @@
+FROM jboss/wildfly:24.0.0.Final
+ENV TZ="Asia/Bangkok"
+COPY src/standalone.xml /opt/jboss/wildfly/standalone/configuration/standalone.xml
+COPY src/script.sh /opt/jboss/wildfly/welcome-content/script.sh
+ADD src/postBE.war /opt/jboss/wildfly/standalone/deployments/
+#ADD src/HeyBoysBand.war /opt/jboss/wildfly/standalone/deployments/
+#CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
+## start jboss in script.sh
+CMD ["/opt/jboss/wildfly/welcome-content/script.sh"]

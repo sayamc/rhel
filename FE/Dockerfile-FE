@@ -1,0 +1,8 @@
+FROM jboss/wildfly:8.1.0.Final
+ENV TZ="Asia/Bangkok"
+COPY src/standalone-8.1.0.xml /opt/jboss/wildfly/standalone/configuration/standalone.xml
+#COPY src/index.html /opt/jboss/wildfly/welcome-content/index.html
+COPY src/frontend_lotto.html /opt/jboss/wildfly/welcome-content/index.html
+COPY src/lotto_bg_900x300.png /opt/jboss/wildfly/welcome-content/lotto_bg.png
+CMD ["/opt/jboss/wildfly/bin/standalone.sh", "-b", "0.0.0.0", "-bmanagement", "0.0.0.0"]
+
