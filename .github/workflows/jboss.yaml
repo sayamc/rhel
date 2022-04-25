@@ -54,9 +54,7 @@ jobs:
     needs: build
     runs-on: self-hosted
     steps:
-#      - name: test-be1
-#        run: curl 127.0.0.1:31180
-      - name: test-fe
+      - name: test-fe-be1
         run: |
              sleep 5
              curl 127.0.0.1:31080/getBE > /tmp/fe-getBE.tmp
