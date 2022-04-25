@@ -58,7 +58,9 @@ jobs:
 #        run: curl 127.0.0.1:31180
       - name: test-fe
         run: |
+             sleep 5
              curl 127.0.0.1:31080/getBE > /tmp/fe-getBE.tmp
+             sleep 5
              curl 127.0.0.1:31180 > /tmp/be1.tmp
 #      - name: stop-container
 #        run: |
