@@ -32,7 +32,7 @@ jobs:
 
       - name: deploy be1
         run: |
-             if [ ! -z "$(docker ps | grep jboss-be1)" ];then
+             if [ ! -z "$(docker ps -a| grep jboss-be1)" ];then
               docker stop jboss-be1
               docker rm jboss-be1
               docker run -d --network my-net --name jboss-be1 -p 31180:8080 redhat8-0:5000/jboss/wildfly:24.0.0.Final-BE
@@ -42,7 +42,7 @@ jobs:
 
       - name: deploy fe
         run: |
-             if [ ! -z "$(docker ps | grep jboss-fe)" ];then
+             if [ ! -z "$(docker ps -a| grep jboss-fe)" ];then
               docker stop jboss-fe
               docker rm jboss-fe
               docker run -d --network my-net --name jboss-fe -p 31080:8080 redhat8-0:5000/jboss/wildfly:8.1.0.Final-FE
