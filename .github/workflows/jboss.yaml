@@ -62,8 +62,10 @@ jobs:
              curl 127.0.0.1:31080/getBE > /tmp/fe-getBE.tmp
              sleep 5
              curl 127.0.0.1:31180 > /tmp/be1.tmp
-#      - name: stop-container
-#        run: |
-#             docker stop jboss-fe && docker rm jboss-fe
-#             docker stop jboss-be1 && docker rm jboss-be1
+      - name: stop-container
+        run: |
+             sleep 5
+             docker stop jboss-fe && docker rm jboss-fe
+             sleep 5
+             docker stop jboss-be1 && docker rm jboss-be1
 
